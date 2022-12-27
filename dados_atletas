@@ -1,0 +1,76 @@
+class Atleta{
+    constructor(nome, idade, peso, altura, notas){
+        this.nome = nome
+        this.idade = idade
+        this.peso = peso
+        this.altura = altura
+        this.notas = notas
+    };
+     calcularMediaValida(){
+        this.notas = this.notas.sort()
+        this.notas = this.notas.slice(1,4)
+        var acumulador = 0
+        this.notas.forEach((nota) => {
+            acumulador = nota + acumulador
+        });
+        let mediaValida = acumulador/this.notas.length
+        return mediaValida   
+    };
+
+   
+    calcularCategoria(){
+        if(this.idade > 8 && this.idade < 12)
+        return "Infantil"
+        if(this.idade > 11 && this.idade < 14)
+        return "Juvenil"
+        if(this.idade > 13 && this.idade < 16)
+        return "Intermediário"
+        if(this.idade > 15 && this.idade < 31)
+        return "Adulto"
+    };
+   
+    calcularIMC(){
+        return this.peso / (this.altura*this.altura)
+    };
+    
+      
+   obtemNomeAtleta(){
+      return this.nome
+    };
+    obtemIdadeAtleta(){
+        return this.idade
+    };
+    obtemPesoAtleta(){
+       return  this.peso
+    };
+    obtemAlturaAtleta(){
+      return   this.altura
+    };
+    obtemNotasAtleta(){
+        return this.notas
+    };
+    obtemCategoria(){
+     return   atleta.calcularCategoria()
+    };
+    obtemIMC(){
+      return   atleta.calcularIMC()
+    };
+    obtemMediaValida(){
+        return atleta.calcularMediaValida()
+    }
+    
+
+
+   
+}
+
+const atleta = new Atleta("Cesar Abascal", 30, 80, 1.70, [10, 9.34, 8.42, 10, 7.88]);
+
+console.log(atleta.obtemNomeAtleta())
+console.log(atleta.obtemIdadeAtleta())
+console.log(atleta.obtemPesoAtleta())
+console.log(atleta.obtemAlturaAtleta())
+console.log(atleta.obtemNotasAtleta())
+console.log(atleta.obtemCategoria())
+console.log(atleta.obtemIMC().toFixed(2))
+console.log(atleta.obtemMediaValida().toFixed(2))
